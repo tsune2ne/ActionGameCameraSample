@@ -190,8 +190,12 @@ namespace StarterAssets
             }
         }
 
+        [SerializeField] private ThirdPersonCamera camera;
+
         private void CameraRotation()
         {
+            return;
+            
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
