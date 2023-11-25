@@ -11,7 +11,8 @@
                     "id": "6bc1aaf4-b110-4ff7-891e-5b9fe6f32c4d",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Look",
@@ -19,7 +20,8 @@
                     "id": "2690c379-f54d-45be-a724-414123833eb4",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
                     "name": "Jump",
@@ -27,7 +29,8 @@
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Sprint",
@@ -35,7 +38,8 @@
                     "id": "980e881e-182c-404c-8cbf-3d09fdb48fef",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -95,50 +99,6 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "up",
-                    "id": "bb94b405-58d3-4998-8535-d705c1218a98",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "929d9071-7dd0-4368-9743-6793bb98087e",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "left",
-                    "id": "28abadba-06ff-4d37-bb70-af2f1e35a3b9",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "45f115b6-9b4f-4ba8-b500-b94c93bf7d7e",
-                    "path": "<Keyboard>/rightArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
                     "name": "",
                     "id": "e2f9aa65-db06-4c5b-a2e9-41bc8acb9517",
                     "path": "<Gamepad>/leftStick",
@@ -150,26 +110,59 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "ed66cbff-2900-4a62-8896-696503cfcd31",
-                    "path": "<Pointer>/delta",
+                    "name": "CrossKey",
+                    "id": "746b84fd-30d8-4577-b091-eea0de93cd7c",
+                    "path": "2DVector(mode=1)",
                     "interactions": "",
-                    "processors": "InvertVector2(invertX=false),ScaleVector2(x=0.05,y=0.05)",
-                    "groups": "KeyboardMouse",
+                    "processors": "",
+                    "groups": "",
                     "action": "Look",
-                    "isComposite": false,
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "d1d171b6-19d8-47a6-ba3a-71b6a8e7b3c0",
-                    "path": "<Gamepad>/rightStick",
+                    "name": "Up",
+                    "id": "f7f36a1e-924e-4249-881b-bc2f82d193ad",
+                    "path": "<Keyboard>/upArrow",
                     "interactions": "",
-                    "processors": "InvertVector2(invertX=false),StickDeadzone,ScaleVector2(x=300,y=300)",
-                    "groups": "Gamepad",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
                     "action": "Look",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "f38bc295-2503-4de9-8efc-5ce49fd17b9e",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Left",
+                    "id": "a1a1971f-b7b5-402a-9303-64654bfd5c1b",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "083573dc-b774-4d2e-aa01-13accb730a21",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Look",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "",
