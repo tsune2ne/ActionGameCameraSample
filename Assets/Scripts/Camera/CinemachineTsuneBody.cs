@@ -23,15 +23,23 @@ public class CinemachineTsuneBody : CinemachineComponentBase
     [SerializeField, Tooltip("中心位置のオフセット")] 
     private Vector3 centerOffset;
 
-    //// 障害物情報 ////
-    RaycastHit hitInfo;
+    [SerializeField, Tooltip("カメラ回り込み速度")]
+    float autoRotateSpeed = -500f;
 
+
+    RaycastHit hitInfo;
+    Vector3 prevPlayerPos;
+    
     public override bool IsValid => enabled && FollowTarget != null;
     public override CinemachineCore.Stage Stage => CinemachineCore.Stage.Body;
 
     public override void MutateCameraState(ref CameraState curState, float deltaTime)
     {
+        var playerPos = FollowTargetPosition;
+        var cameraPos = transform.position;
+        
         Validate();
+        UpdateAngle(playerPos, cameraPos, deltaTime);
         var basePos = FollowTargetPosition + centerOffset;
         var localPos = CalculateCameraPositionByAngle(horizontalAngle, verticalAngle);
         var newPos = basePos + localPos * cameraDistance;
@@ -41,13 +49,29 @@ public class CinemachineTsuneBody : CinemachineComponentBase
         
         // カメラ操作時以外はスムーズにカメラ移動
         curState.RawPosition = newPos;
+        
+        // 後処理
+        prevPlayerPos = playerPos;
     }
 
     void Validate()
     {
         verticalAngle = Mathf.Clamp(verticalAngle, MinVerticalAngle, MaxVerticalAngle);
     }
-    
+
+    void UpdateAngle(Vector3 playerPos, Vector3 cameraPos, float deltaTime)
+    {
+        var moveDir = playerPos - prevPlayerPos;
+        if (prevPlayerPos != Vector3.zero && moveDir != Vector3.zero)
+        {
+            // Playerの移動値をカメラ横軸に投影してxAngleに代入
+            var project = Vector3.Project(moveDir, transform.right);
+            var diff = project.sqrMagnitude;
+            var dot = Vector3.Dot(moveDir, transform.right);
+            horizontalAngle += diff * autoRotateSpeed * (dot > 0 ? 1 : -1);
+        }
+    }
+
     static Vector3 CalculateCameraPositionByAngle(float xAngle, float yAngle)
     {
         // 設定角度からカメラ座標を計算

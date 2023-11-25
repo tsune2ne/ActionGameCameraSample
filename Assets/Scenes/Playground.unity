@@ -201,6 +201,7 @@ MonoBehaviour:
   horizontalAngle: 0
   verticalAngle: 15
   centerOffset: {x: 0, y: 1, z: 0}
+  autoRotateSpeed: -500
 --- !u!1 &392131042
 GameObject:
   m_ObjectHideFlags: 0
@@ -447,7 +448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vCamera: {fileID: 1908437015}
   input: {fileID: 1762682259}
-  inputRate: {x: -1, y: 1}
+  inputRate: {x: -0.1, y: 0.1}
   lockY: 1
 --- !u!1 &542508511
 GameObject:
@@ -2027,7 +2028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2129468238
 MonoBehaviour:
   m_ObjectHideFlags: 0
