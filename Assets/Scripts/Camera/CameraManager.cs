@@ -7,15 +7,17 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private ThirdPersonCamera thirdPersonCamera;
     [SerializeField] private LockOnCamera lockOnCamera;
 
-    public void ActiveThirdPersonCamera()
+    public void ToggleLockOnCamera()
     {
-        thirdPersonCamera.gameObject.SetActive(true);
-        lockOnCamera.gameObject.SetActive(false);
-    }
-
-    public void ActiveLockOnCamera()
-    {
-        thirdPersonCamera.gameObject.SetActive(false);
-        lockOnCamera.gameObject.SetActive(true);
+        if (lockOnCamera.gameObject.activeSelf)
+        {
+            thirdPersonCamera.gameObject.SetActive(true);
+            lockOnCamera.gameObject.SetActive(false);
+        }
+        else
+        {
+            thirdPersonCamera.gameObject.SetActive(false);
+            lockOnCamera.gameObject.SetActive(true);
+        }
     }
 }
